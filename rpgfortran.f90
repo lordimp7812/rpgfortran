@@ -8,6 +8,7 @@ program rpg
 V=20
 
 
+   !cheguei
    
 
 
