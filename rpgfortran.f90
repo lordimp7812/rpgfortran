@@ -38,6 +38,50 @@ program rpg
 	Write (*,*) ""
 
 contains 
+
+subroutine combate (habilidade,armadura_heroi,energia,energia_boss,dano_boss,armadura_boss)
+implicit none 
+integer :: habilidade
+integer:: armadura_heroi
+integer:: energia 
+integer:: p
+integer:: energia_boss
+integer:: dano_boss
+integer:: armadura_boss
+integer:: t
+integer:: o
+integer:: l
+integer:: f
+o=habilidade*dado(1)/armadura_boss
+l=dano_boss/armadura_heroi
+f=o-l
+select case (f)
+case (1:10000)
+p=energia_boss-o
+write(*,*) p
+energia_boss=p
+case (0)
+t=energia-l
+write(*,*) t
+energia=t
+write(*,*) energia
+case (-10000:-1)
+write  (*,*) "nada acontece"
+
+end select
+
+
+
+!p significa o dano aplicado a vida do boss
+!t significa o dano aplicado a vida do jogador
+!o significa o dano do jogador ao boss
+!l significa o dano do boss ao jogador
+ 
+
+
+
+ end subroutine combate 
+
    
 	INTEGER FUNCTION dado(numero)
 		implicit none
